@@ -1,0 +1,6 @@
+{
+  "name": "Trabajo Integrador — Ingeniería de Software (Grupo 14)",
+  "description": "Presentación interactiva del Trabajo Integrador de Ingeniería de Software (UNJu): evaluación de usabilidad en Scratch, accesibilidad WCAG en NASA, y simuladores de pruebas de caja negra (Replit) y caja blanca (dias_del_mes).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
