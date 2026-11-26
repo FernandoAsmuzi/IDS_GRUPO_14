@@ -5,6 +5,7 @@ import { UsabilitySection } from './components/UsabilitySection';
 import { AccessibilitySection } from './components/AccessibilitySection';
 import { BlackBoxSection } from './components/BlackBoxSection';
 import { WhiteBoxSection } from './components/WhiteBoxSection';
+import { assetUrl } from './data/tpData';
 
 export type SectionId = 'portada' | 'usabilidad' | 'accesibilidad' | 'caja-negra' | 'caja-blanca';
 
@@ -16,7 +17,7 @@ const SECTIONS: Array<{ id: SectionId; navLabel: string; fullTitle: string }> = 
   { id: 'caja-blanca', navLabel: 'Caja Blanca', fullTitle: '04. Caja Blanca (dias_del_mes)' },
 ];
 
-const PDF_URL = '/assets/aistudio/IDS_TRABAJO_INTEGRADOR_GRUPO_14_7bea9535.pdf';
+const PDF_URL = assetUrl('assets/aistudio/IDS_TRABAJO_INTEGRADOR_GRUPO_14_7bea9535.pdf');
 
 export default function App() {
   const [activeSection, setActiveSection] = useState<SectionId>('portada');

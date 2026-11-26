@@ -1,3 +1,8 @@
+export function assetUrl(path: string): string {
+  const base = import.meta.env.BASE_URL || '/';
+  return `${base.endsWith('/') ? base : `${base}/`}${path.replace(/^\/+/, '')}`;
+}
+
 export interface EvidenceItem {
   id: string;
   src: string;
@@ -144,7 +149,7 @@ export const USABILITY_HEURISTICS: NielsenHeuristic[] = [
 export const USABILITY_EVIDENCE: EvidenceItem[] = [
   {
     id: 'scratch-depurar',
-    src: '/assets/evidencias/scratch_depurar.png',
+    src: assetUrl('assets/evidencias/scratch_depurar.png'),
     title: 'Guía de depuración "Cómo salir del estancamiento"',
     caption:
       'Ventana contextual abierta desde el menú Depurar en Scratch (Heurística N°9). Ofrece estrategias guiadas como "Leer en voz alta", "Desglósalo" y "Ve más lento".',
@@ -312,35 +317,35 @@ export const MANUAL_KEYBOARD_FINDINGS = [
 export const ACCESSIBILITY_EVIDENCE: EvidenceItem[] = [
   {
     id: 'nasa-wave-resumen',
-    src: '/assets/evidencias/nasa_wave_resumen.png',
+    src: assetUrl('assets/evidencias/nasa_wave_resumen.png'),
     title: 'Resumen de auditoría WAVE (M1: Home)',
     caption: 'Panel resumen de WAVE sobre www.nasa.gov: AIM Score 7.7/10, 3 errores, 8 errores de contraste y 8 alertas.',
     tag: 'WAVE · Resumen',
   },
   {
     id: 'nasa-wave-detalle',
-    src: '/assets/evidencias/nasa_wave_detalle.png',
+    src: assetUrl('assets/evidencias/nasa_wave_detalle.png'),
     title: 'Detalle de hallazgos WAVE',
     caption: 'Desglose técnico de los 3 botones vacíos, 8 fallas de muy bajo contraste y alertas estructurales detectadas por WAVE.',
     tag: 'WAVE · Detalle',
   },
   {
     id: 'nasa-taw-resumen',
-    src: '/assets/evidencias/nasa_taw_resumen.png',
+    src: assetUrl('assets/evidencias/nasa_taw_resumen.png'),
     title: 'Resumen TAW (WCAG 2.1 Nivel AA)',
     caption: 'Reporte TAW para la página principal de NASA: 21 problemas en 5 criterios de éxito, 223 advertencias y 15 puntos no verificados.',
     tag: 'TAW · WCAG 2.1 AA',
   },
   {
     id: 'nasa-teclado-virtual',
-    src: '/assets/evidencias/nasa_teclado_virtual.png',
+    src: assetUrl('assets/evidencias/nasa_teclado_virtual.png'),
     title: 'Prueba manual con teclado en pantalla',
     caption: 'Verificación empírica navegando www.nasa.gov únicamente con el teclado virtual del sistema operativo accionado por puntero.',
     tag: 'Prueba Manual',
   },
   {
     id: 'nasa-onti-error',
-    src: '/assets/evidencias/nasa_onti_error.png',
+    src: assetUrl('assets/evidencias/nasa_onti_error.png'),
     title: 'Indisponibilidad del evaluador ONTI',
     caption: 'Evidencia de error ERR_CONNECTION_TIMED_OUT al intentar acceder a accesar.onti.argentina.gob.ar durante la auditoría.',
     tag: 'ONTI · Nota',
@@ -590,35 +595,35 @@ export const BLACKBOX_TEST_CASES = [
 export const BLACKBOX_EVIDENCE: EvidenceItem[] = [
   {
     id: 'replit-diagrama',
-    src: '/assets/evidencias/replit_diagrama_estados.png',
+    src: assetUrl('assets/evidencias/replit_diagrama_estados.png'),
     title: 'Diagrama de Transición de Estados (Informe)',
     caption: 'Diagrama original elaborado por el grupo modelando el flujo esperado en azul y las transiciones reales de bloqueo/error en rojo.',
     tag: 'Diagrama',
   },
   {
     id: 'replit-cp1-inicio',
-    src: '/assets/evidencias/replit_cp1_inicio.png',
+    src: assetUrl('assets/evidencias/replit_cp1_inicio.png'),
     title: 'CP1: Panel principal en modo Free',
     caption: 'Ingreso de "Python script print hola" con el selector inferior en modo Free previo a presionar enviar.',
     tag: 'REP_PY_1',
   },
   {
     id: 'replit-cp1-planes',
-    src: '/assets/evidencias/replit_cp1_planes.png',
+    src: assetUrl('assets/evidencias/replit_cp1_planes.png'),
     title: 'CP1: Bloqueo "Compare plans"',
     caption: 'Modal que interrumpe el flujo exigiendo suscripción paga (Core $20/mes, Pro $100/mes o Enterprise) al intentar crear el proyecto.',
     tag: 'REP_PY_1 · Fallo',
   },
   {
     id: 'replit-cp2-empty',
-    src: '/assets/evidencias/replit_cp2_empty.png',
+    src: assetUrl('assets/evidencias/replit_cp2_empty.png'),
     title: 'CP2: Ruta Import → Empty',
     caption: 'Pantalla mostrando "You have 10 free apps left" mientras la alerta inferior derecha rechaza la creación del proyecto vacío.',
     tag: 'REP_PY_2 · Inconsistencia',
   },
   {
     id: 'replit-alerta',
-    src: '/assets/evidencias/replit_alerta_plan.png',
+    src: assetUrl('assets/evidencias/replit_alerta_plan.png'),
     title: 'Alerta de restricción de plan',
     caption: 'Detalle ampliado de la notificación roja: "The Starter plan is unavailable. Choose a paid plan to continue."',
     tag: 'Estado 7',
@@ -929,14 +934,14 @@ export const WHITEBOX_TEST_CASES = [
 export const WHITEBOX_EVIDENCE: EvidenceItem[] = [
   {
     id: 'whitebox-code',
-    src: '/assets/evidencias/codigo_python.png',
+    src: assetUrl('assets/evidencias/codigo_python.png'),
     title: 'Módulo Python asignado: dias_del_mes',
     caption: 'Código fuente original entregado en la consigna para realizar las pruebas de caja blanca.',
     tag: 'Consigna',
   },
   {
     id: 'whitebox-gfc',
-    src: '/assets/evidencias/caja_blanca_gfc.png',
+    src: assetUrl('assets/evidencias/caja_blanca_gfc.png'),
     title: 'Grafo de Flujo de Control (GFC) del informe',
     caption: 'Grafo original con 13 nodos, 19 aristas, 7 nodos predicado y 8 regiones (R1 a R8), verificando V(G) = 8.',
     tag: 'GFC · V(G) = 8',

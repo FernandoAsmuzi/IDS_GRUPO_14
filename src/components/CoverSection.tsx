@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ArrowRight, CheckSquare, Eye, GitBranch, Layers } from 'lucide-react';
-import { GROUP_MEMBERS } from '../data/tpData';
+import { GROUP_MEMBERS, assetUrl } from '../data/tpData';
 import type { SectionId } from '../App';
 
 interface CoverSectionProps {
@@ -88,7 +88,7 @@ export function CoverSection({ onNavigate }: CoverSectionProps) {
           <div className="lg:col-span-4 flex flex-col items-center justify-center rounded-xl border border-slate-200 bg-slate-50/70 p-6 text-center">
             {!logoError ? (
               <img
-                src="/assets/evidencias/logo_unju.png"
+                src={assetUrl('assets/evidencias/logo_unju.png')}
                 alt="Logotipo de la Facultad de Ingeniería de la Universidad Nacional de Jujuy"
                 referrerPolicy="no-referrer"
                 onError={() => setLogoError(true)}
